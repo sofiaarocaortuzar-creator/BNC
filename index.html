@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re-Valuing Blue Natural Capital — Knowledge Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============================================================
+     RE-VALUING BLUE NATURAL CAPITAL — KNOWLEDGE ARCHITECTURE
+     LSE × Oceano Azul Foundation
+     
+     HOW TO UPDATE THIS PAGE WHEN NEW PAPERS ARE ADDED:
+     ─────────────────────────────────────────────────
+     1. Only edit the DATA SECTION below (between the ✏️ markers).
+     2. Never touch anything below the 🔒 marker.
+     3. To update: change METADATA (paper count, version, date),
+        then update the relevant entries in the D[] array.
+     4. Save the file, replace index.html in your GitHub repo.
+        The page updates automatically in ~60 seconds.
+     
+     WHAT TO UPDATE IN D[] WHEN ADDING PAPERS:
+     ─────────────────────────────────────────
+     Each dimension has: subtemas[], insight, tensions[], 
+     questions[], papers[].
+     • Add new sub-themes to subtemas[] if needed.
+     • Update or expand the insight text.
+     • Add new papers to papers[].
+     • Update tensions/questions if debates have evolved.
+     
+     WHAT TO UPDATE IN CONNECTIONS[] WHEN ADDING PAPERS:
+     ────────────────────────────────────────────────────
+     Add a new entry if a paper reveals a previously undocumented
+     relationship between two dimensions.
+     Format: {from: INDEX, to: INDEX, label: '...', desc: '...'}
+     Indices: 0=Data, 1=Ecosystems, 2=Geography, 3=Knowledge,
+              4=Valuation, 5=Finance, 6=Policy, 7=Tensions
+     ============================================================ -->
+
+<script>
+// ✏️ ═══════════════════════════════════════════════════════════
+// DATA SECTION — EDIT THIS SECTION WHEN ADDING NEW PAPERS
+// ═══════════════════════════════════════════════════════════ ✏️
+
+const METADATA = {
+  papers: 31,           // ← update when adding papers
+  version: '1.0',       // ← update on each release (1.0, 1.1, 2.0...)
+  date: 'November 2025' // ← update on each release
+};
+
+// DIMENSION DATA
+// Each entry: num, name, subtitle, color, subtemas[], insight, tensions[], questions[], papers[]
+// Each subtema: { t: 'title', d: 'description', tension: 'embedded tension' }
+
+const D = [
+
+// ── 01 DATA & MEASUREMENT ──────────────────────────────────────
+{
+  num: '01', name: 'Data & Measurement', subtitle: 'The infrastructure question',
+  color: '#d4880a',
+  subtemas: [
+    { t: 'Satellite + Machine Learning (Google Earth Engine)',
+      d: 'Remote sensing platforms combined with ML algorithms (Random Forest, deep learning) allow automated large-scale mapping of coastal ecosystems at 30m resolution. Lu et al. (2026) achieved 93.76% accuracy on coastal wetland classification in China — compared to ~80% from standard land cover products.',
+      tension: 'The precision gain from ML requires computational resources and training data largely unavailable in data-scarce regions, creating a technological equity gap.' },
+    { t: 'InVEST biophysical models',
+      d: 'The Integrated Valuation of Ecosystem Services and Tradeoffs (InVEST) suite translates biophysical measurements into ecosystem service flows: water yield, carbon storage, habitat quality, nutrient delivery. Used across glaciers (Xia 2026), Andean watersheds (Vicuña 2025), and Chinese watersheds (Tao 2025).',
+      tension: 'InVEST quantifies ecosystem service provision capacity, not actual flow to beneficiaries — delivery requires additional modelling layers.' },
+    { t: 'Integrated Assessment Models (IAMs)',
+      d: 'IAMs like RICE50+ combine climate projections with economic damage functions at country scale. Bastien-Olvera et al. (2026) embedded blue capital damage functions across 155 countries with 10,000 Monte Carlo simulations to estimate the blue Social Cost of Carbon.',
+      tension: 'IAMs require reducing complex non-linear ecological dynamics to damage functions, inevitably simplifying substitutability assumptions that drive results.' },
+    { t: 'ESVD — Global Ecosystem Services Valuation Database',
+      d: 'The ESVD aggregates monetary estimates from 1,300+ studies globally, enabling benefit transfer — applying values from one context to another. It now holds 9,400+ estimates across 15 biomes and 23 services (Brander et al. 2024). Marine biomes are the highest-valued globally.',
+      tension: 'Over 80% of marine and coastal estimates originate from Europe and North America, creating a geographic bias that may misrepresent ecosystem service values elsewhere.' },
+    { t: 'Marine Satellite Accounts — the missing infrastructure',
+      d: "Marine Satellite Accounts are statistical annexes that disaggregate ocean-related economic activity by sector. Currently no international standard exists. O'Donoghue et al. (2021) document the extreme time intensity of manually disaggregating marine data from generic national statistics.",
+      tension: 'Without standardised Marine Satellite Accounts, marine economic data is incomparable across countries — the data infrastructure prerequisite for global NCA is currently absent.' },
+    { t: 'SEEA-EA exchange value methodology',
+      d: 'SEEA-EA defines exchange prices as those at which ecosystem services could be traded in a market. Pascoe & Scheufele (2025) innovate the rent revenue share method to resolve the problem of attributing exchange values to individual species in multispecies fisheries — correcting an error found in ~90% of published SEEA-EA fisheries studies.',
+      tension: 'SEEA-EA exchange values capture only market-observable contributions — welfare values (consumer surplus, non-use values, cultural significance) lie outside the standard.' },
+    { t: 'LCA effect factors for marine ecosystems',
+      d: 'Life Cycle Assessment (LCA) quantifies environmental impacts of products across their full lifecycle. Song et al. (2026) develop spatially differentiated Effect Factors for microplastic impacts on marine carbon sequestration — the first global LCA metric for this pathway. Arid and tropical ocean zones account for 98% of global marine carbon sequestration loss from microplastics.',
+      tension: 'No agreed standardised metric exists for ecosystem services in the Life Cycle Impact Assessment (LCIA) framework, preventing integration of marine ES losses into product-level environmental accounting.' },
+    { t: 'Ocean economy classification standards',
+      d: "Song & Guo (2021) conduct the first systematic bilateral comparison of China's and Canada's marine economy classification systems, finding fundamental incompatibilities: China uses industry-based classification (28 classes, 107 subclasses); Canada uses geographic + input-output tiers including indirect and induced impacts absent from China's scope.",
+      tension: 'The absence of internationally comparable marine economic statistics makes it impossible to aggregate national ocean economies — a precondition for global NCA that currently does not exist.' }
+  ],
+  insight: 'The past decade has produced powerful complementary tools for marine NCA: ML-enhanced satellite mapping for spatial precision, InVEST for biophysical flow quantification, IAMs for policy-scale scenario analysis, and global value databases for rapid transfer. The frontier is now the data infrastructure layer — harmonised Marine Satellite Accounts and international ocean economy classification standards — that would allow these tools to produce genuinely comparable, globally aggregable results. Several of the most important methodological innovations in the repository (rent revenue share, spatially differentiated LCA effect factors, ML wetland mapping) emerged precisely from engaging with the limits of existing data infrastructure.',
+  tensions: [
+    'Standard land cover products (~80% accuracy) are insufficient for robust ecosystem accounts — ML enhancement is needed but remains resource-intensive and geographically uneven',
+    'No standardised Marine Satellite Accounts exist: marine economic data is currently incomparable across countries (Song & Guo 2021)',
+    'Simple decision-ready metrics (BCR, SCC) and complex models capturing full ecosystem dynamics serve different users — both are needed, and neither can replace the other'
+  ],
+  questions: [
+    'How could Marine Satellite Accounts be standardised internationally in time to inform UNOC 2028 national reporting?',
+    'To what degree can AI/ML accelerate ESVD data coding for under-represented regions and deep-sea ecosystems at scale?'
+  ],
+  papers: ['Lu 2026', 'Song 2026', "O'Donoghue 2021", 'Brander 2024', 'Bastien-Olvera 2026', 'Pascoe & Scheufele 2025', 'Song & Guo 2021', 'Zepp 2025', 'Tao 2025']
+},
+
+// ── 02 ECOSYSTEMS & HABITATS ───────────────────────────────────
+{
+  num: '02', name: 'Ecosystems & Habitats', subtitle: 'What we are actually valuing',
+  color: '#4a8a1a',
+  subtemas: [
+    { t: 'Coral reefs',
+      d: 'Coral reefs are the most studied marine ecosystem in the valuation literature, with a global median value of $87,211/ha/year (Brander 2024) — the highest of any marine biome in the ESVD. This value reflects provisioning (fisheries), regulating (coastal protection), and cultural (tourism, aesthetics) services simultaneously.',
+      tension: 'Climate-driven bleaching events are pushing coral systems past non-linear tipping points faster than valuation frameworks can incorporate — static benefit transfer values do not capture irreversibility.' },
+    { t: 'Mangroves',
+      d: 'Mangroves carry a global median value of $77,928/ha/year (Brander 2024) and are among the most studied coastal ecosystems. Hernández-Blanco et al. (2025) find that oceanic ecosystems — including mangroves, coral reefs, and open water — account for 67% of Costa Rica\'s total national natural capital by area, at $9.8B/year.',
+      tension: 'Welfare values for mangrove services (community WTP = 47% of annual household income in Brazilian Amazon; Otieno 2026) substantially exceed the carbon market prices that currently drive most mangrove conservation finance.' },
+    { t: 'Seagrass and Posidonia oceanica',
+      d: 'Seagrass meadows provide blue carbon storage, nursery habitat, and sediment stabilisation. Dentamare et al. (2025) document a governance anomaly: Posidonia oceanica banquettes (beached dead leaves) are legally classified as "municipal waste" in Italy, placing them outside biodiversity protection despite their biogeochemical function.',
+      tension: 'The legal misclassification of banquettes generates quantifiable ecosystem service losses (~40t carbon/year on the Campania coast alone) that are invisible to both conservation law and natural capital accounting.' },
+    { t: 'Coastal wetlands',
+      d: 'Lu et al. (2026) use ML-enhanced mapping on Google Earth Engine to quantify four ecosystem services in Chinese coastal wetlands and find that all six pairwise ES relationships show significant positive correlations — conservation simultaneously delivers multiple co-benefits with no detected trade-offs.',
+      tension: 'ES cold spots (lowest ecosystem service provision) are concentrated in economically developed bays — demonstrating a systematic decoupling between economic development intensity and ecosystem service provision.' },
+    { t: 'Deep sea — the critical gap',
+      d: 'The deep sea covers over 60% of Earth\'s surface and is the largest carbon repository on the planet, yet it has near-zero primary valuation estimates in major databases. No agreed methods exist for attributing exchange or welfare values to deep-sea ecosystem services.',
+      tension: 'Benefit transfer from shallow-water systems may be the only available approach — but the ecological, economic, and cultural contexts are so distinct that transfers may be fundamentally unreliable.' },
+    { t: 'Exported Macrophyte Biomass (EMB)',
+      d: 'Ewers Lewis et al. (2026) synthesise 289 papers and find that biomass exported from seagrass, mangroves, salt marshes, and macroalgae forests provides ecosystem services in 73–92% of documented trials in recipient ecosystems. Only 2% of these papers explicitly framed EMB contributions as "ecosystem services."',
+      tension: 'All single-habitat ecosystem service valuations — including most blue carbon accounting — systematically underestimate true values by ignoring cross-ecosystem connectivity through exported biomass. The scale of underestimation is unknown but likely substantial.' },
+    { t: 'Kelp forests, salt marshes, and polar ecosystems',
+      d: 'These ecosystems share a common profile: high ecological significance, high climate sensitivity, and relatively sparse valuation evidence. Montano et al. (2025) find that Australian storm protection values for seagrass rank at the 100th global percentile ($463K/ha/yr) — suggesting extraordinary but poorly documented regulating service values.',
+      tension: 'Sparse evidence creates a risk that governance frameworks defaulting to known values will systematically underweight these ecosystems in planning decisions.' },
+    { t: 'Whales as marine ecosystem engineers',
+      d: 'Whales function as nutrient vectors — redistributing nutrients across depth gradients and latitudes via fecal plumes that fertilise phytoplankton blooms responsible for approximately 40% of global CO₂ absorption. Each whale carcass sequesters an estimated 33t CO₂ to the deep ocean. A single great whale is valued at over $2M based on these services (Chami et al. 2019, cited in Muzaka 2025).',
+      tension: 'This scientific understanding has inspired "whale bond" proposals (Muzaka 2025): financial instruments converting living whales into speculative assets yielding carbon credit returns. Whether this is conservation finance or extension of commodity logic into living ecosystems is the central debate.' }
+  ],
+  insight: 'Coastal ecosystems including coral reefs, mangroves, and seagrass meadows now have robust global value estimates and a substantial methodological literature. The research frontier has moved to three largely uncharted territories: deep-sea habitats where primary valuation is nearly absent; cross-ecosystem connectivity via exported macrophyte biomass where current single-habitat accounting systematically underestimates values; and dynamic living actors like whale populations whose roles as ecosystem engineers are only recently quantified. Each frontier requires different methodological tools and different governance frameworks than existing coastal NCA.',
+  tensions: [
+    'Coastal habitats benefit from decades of concentrated valuation research; deep sea and open ocean remain near-total data voids — this asymmetry shapes which ecosystems receive policy attention',
+    'Single-habitat blue carbon accounting ignores cross-ecosystem connectivity via Exported Macrophyte Biomass, generating structural underestimates of coastal carbon storage',
+    'Market provisioning services (fisheries, aquaculture) generate readily quantifiable exchange values; non-use existence and cultural values require methodologically distinct welfare approaches'
+  ],
+  questions: [
+    'How can deep-sea ecosystem service values be estimated when primary data collection is prohibitively expensive — and how reliable would benefit transfer from shallow systems be?',
+    'How can the contribution of Exported Macrophyte Biomass be incorporated into blue carbon accounting without double-counting values already attributed to donor ecosystems?'
+  ],
+  papers: ['Brander 2024', 'Dentamare 2025', 'Ewers Lewis 2026', 'Lu 2026', 'Montano 2025', 'Muzaka 2025', 'Bastien-Olvera 2026', 'Song 2026', 'Hernández-Blanco 2025', 'Otieno 2026']
+},
+
+// ── 03 GEOGRAPHIC COVERAGE ────────────────────────────────────
+{
+  num: '03', name: 'Geographic Coverage', subtitle: 'Where knowledge lives — and dies',
+  color: '#6b7280',
+  subtemas: [
+    { t: 'Europe — over-represented',
+      d: 'European ecosystems dominate the ESVD, particularly UK, Mediterranean, and North Sea contexts. This concentration reflects EU research funding patterns, proximity of major research institutions, and regulatory demand for ecosystem service evidence in European environmental law.',
+      tension: 'Methodological choices calibrated to European contexts — survey instruments, ecosystem typologies, valuation functions — may not transfer reliably to ecologically or socio-economically different settings.' },
+    { t: 'North America and Australia',
+      d: 'Both regions have developed strong institutional frameworks for marine NCA. Canada is developing the Blue Economy Development Approach (Mak et al. 2025). Australia, with the world\'s third-largest marine area, has commissioned the first comprehensive national aquatic ecosystem services review (Montano et al. 2025), which is motivating reform of biodiversity offset payment rates.',
+      tension: 'Strong institutional frameworks can entrench outdated methodological choices: Australia\'s current biodiversity offset rate is based on Costanza et al. (1997), which subsequent research has shown to substantially undervalue most ecosystems.' },
+    { t: 'East Asia',
+      d: 'China has moved furthest in institutionalising Gross Ecosystem Product (GEP) as a national accounting metric, with GEP now informing government performance evaluation across 672 counties (Ouyang et al. 2020). Lu et al. (2026) demonstrate scalable ML-enhanced coastal wetland mapping.',
+      tension: 'The institutionalisation of GEP in China uses exchange values compatible with national accounts — welfare values and non-market values are largely outside the metric, limiting what it makes visible to decision-makers.' },
+    { t: 'Latin America — emerging',
+      d: 'Hernández-Blanco et al. (2025) conduct the first full national natural capital valuation for Costa Rica ($14.5B/year), demonstrating that oceanic ecosystems are the largest single ecosystem type by total economic flow. Otieno et al. (2026) provide the first community WTP study for Brazilian Amazon mangroves, finding values far in excess of carbon market prices.',
+      tension: 'High ecosystem values in Latin American countries coexist with limited institutional capacity for NCA implementation and governance of marine resources.' },
+    { t: 'North Africa and MENA',
+      d: 'Mahjoubi et al. (2025) document the collapse of cultural ecosystem services in Morocco\'s Middle Drâa valley oases under prolonged drought — one of the only studies in the repository from North Africa. The ESVD has near-zero coverage for this region.',
+      tension: 'MENA countries face acute water-related ecosystem loss with almost no NCA evidence base to inform governance responses.' },
+    { t: 'Small Island Developing States — critical gap',
+      d: 'SIDS are the most ocean-dependent countries on the planet — fisheries may account for 50%+ of protein intake and 30%+ of GDP in some cases. Yet they are among the least represented in global marine valuation databases, with the deepest governance capacity constraints and the highest climate vulnerability.',
+      tension: 'The combination of highest ocean dependency, lowest NCA data, and most severe climate exposure creates a structural evidence gap precisely where the stakes for blue natural capital governance are highest.' },
+    { t: 'Arctic and Polar regions',
+      d: 'Arctic marine ecosystems are undergoing the most rapid climate-driven transformation of any ocean region, yet have near-total absence from the valuation literature. Governance is fragmented across national jurisdictions with no agreed mechanisms for valuing ecosystem services from areas under multiple sovereignty claims.',
+      tension: 'The pace of ecological change in Arctic systems may outrun the capacity to document baseline values before they are irreversibly altered.' },
+    { t: 'Sub-Saharan Africa — near-absent',
+      d: 'Strand (2025) provides an arts-based participatory research study of ocean knowledge systems in South Africa (Algoa Bay, Mandeni) — one of the very few studies from sub-Saharan Africa in the repository. The study demonstrates methodological approaches for making Indigenous ocean knowledge governmentally legible.',
+      tension: 'The near-absence of NCA evidence from Sub-Saharan Africa — a region with extensive coastlines and high ocean dependency — represents a major gap in the global evidence base.' }
+  ],
+  insight: 'The geographic scope of marine NCA research is actively expanding beyond its historical concentration in Europe and North America. Recent additions from Costa Rica, Brazil, China, Morocco, and South Africa demonstrate both the global applicability of NCA frameworks and the significant methodological adaptation required for different ecological and socio-economic contexts. The most important remaining gap is SIDS — nations simultaneously the most ocean-dependent, the most climate-exposed, and the least represented in the valuation literature. Addressing this gap before UNOC 2028 has both scientific and equity dimensions.',
+  tensions: [
+    'Valuation methods and functions developed in Global North contexts may generate systematically biased estimates when transferred to Global South settings',
+    'Small Island Developing States — the most ocean-dependent nations — have the least data infrastructure to demonstrate ocean value in international governance forums',
+    'Transboundary marine ecosystems routinely cross national jurisdictions, but no governance framework currently accounts for the flow of ecosystem services across borders'
+  ],
+  questions: [
+    'How can benefit transfer methodologies be adapted to reliably represent Global South ecosystem values without perpetuating data colonialism through uncritical application of Global North value functions?',
+    'What targeted research investments — and what institutional mechanisms — are needed to build NCA capacity in SIDS before UNOC 2028?'
+  ],
+  papers: ['Brander 2024', 'Otieno 2026', 'Strand 2025', 'Mak 2025', 'Mahjoubi 2025', 'Song & Guo 2021', 'Tao 2025', 'Hernández-Blanco 2025']
+},
+
+// ── 04 KNOWLEDGE SYSTEMS ──────────────────────────────────────
+{
+  num: '04', name: 'Knowledge Systems', subtitle: 'Who defines ocean value?',
+  color: '#c24e24',
+  subtemas: [
+    { t: 'Western scientific knowledge',
+      d: 'The dominant epistemology in all current SEEA/NCA frameworks — quantitative, reproducible, peer-reviewed, expressed in monetary units compatible with national accounts. This framework produces the methodological infrastructure that makes international comparison and aggregation possible.',
+      tension: 'The strengths of Western scientific knowledge (comparability, aggregability, scalability) are simultaneously its limitations: it excels at measuring what can be quantified and traded, and struggles to represent relational, spiritual, and identity-based values.' },
+    { t: 'Cognitive equity (Strand 2025)',
+      d: 'Strand (2025) proposes cognitive equity as a standalone sixth dimension of ocean equity (alongside distributional, procedural, recognitional, contextual, and restorative). It goes beyond acknowledging multiple knowledge systems — it requires actively elevating historically silenced knowledges, asking whose definition of value a governance framework rests on before designing valuation tools.',
+      tension: 'Cognitive equity raises a prior question that standard NCA frameworks do not address: the choice of what to value and how to value it is itself a political and epistemological choice, not a neutral technical procedure.' },
+    { t: 'Community-based and local knowledge',
+      d: 'Otieno et al. (2026) conduct face-to-face choice experiments with 931 subsistence households in the Brazilian Amazon, finding that aggregate community WTP for mangrove services equals 47% of annual household income — a welfare value that provides empirical grounding for what community-based knowledge of ocean value reveals.',
+      tension: 'Community valuation studies are methodologically demanding, context-specific, and difficult to aggregate — their strength (capturing local preferences) is also their limitation for global policy purposes.' },
+    { t: 'Arts-based research methods',
+      d: 'Strand (2025) employs photovoice, storytelling, and exhibitions with 48 co-researchers in South Africa to document Indigenous ocean knowledge systems. Arts-based methods make intangible values governmentally legible by creating outputs that can enter institutional processes without requiring translation into monetary units.',
+      tension: 'Arts-based research produces evidence that is powerful in participatory contexts but faces credibility challenges in technical NCA and financial instrument design processes dominated by quantitative epistemologies.' },
+    { t: 'Two-Eyed Seeing (Etuaptmumk)',
+      d: 'Mak et al. (2025) embed Two-Eyed Seeing — developed by Mi\'kmaw Elder Albert Marshall — as a mandatory element of Canada\'s proposed Blue Economy Development Approach. It pairs Indigenous and scientific knowledge with equal institutional weight, rather than using Indigenous knowledge as supplementary input to science-led processes.',
+      tension: 'Equal institutional weight in theory can remain nominal in practice when evaluation criteria, timeline pressures, and decision architectures continue to privilege quantitative evidence.' },
+    { t: 'Pluriversality',
+      d: 'Strand (2025) applies the decolonial concept of pluriversality — the coexistence of multiple, epistemologically equal knowledge systems — to ocean governance. Rather than integrating Indigenous knowledge into a Western-dominant framework, pluriversality requires designing governance systems that can hold multiple worldviews simultaneously without hierarchy.',
+      tension: 'Pluriversality challenges the standardisation imperative in international NCA where comparability requires commensurability — creating genuine tension between equity and aggregability.' },
+    { t: 'Co-definition methodology',
+      d: 'Mahjoubi et al. (2025) discover that participants in Morocco\'s Middle Drâa valley do not recognise the scientific term "cultural ecosystem services" — requiring iterative translation into "cultural practices" before meaningful data could be collected. This co-definition process produces richer and more reliable findings than standard survey instruments.',
+      tension: 'The need for co-definition exposes a fundamental gap between academic NCA frameworks and the lived experience of communities whose relationship with ocean ecosystems they are designed to represent.' },
+    { t: 'Participatory valuation design',
+      d: 'Keryan et al. (2026) systematically review 86 participatory valuation studies for aquatic ecosystems and find that no universally effective method exists — effectiveness is highly context-dependent. The study also finds that gender dimensions of participation are rarely analysed, with systematic disparities in how men and women engage with aquatic ecosystems.',
+      tension: 'The context-dependence of participatory methods makes it difficult to standardise approaches for international comparison, while the absence of gender analysis suggests systematic blind spots in whose values are captured.' }
+  ],
+  insight: 'A diverse set of methodological approaches — arts-based research (Strand 2025), community choice experiments (Otieno 2026), co-definition processes (Mahjoubi 2025), Two-Eyed Seeing (Mak 2025) — demonstrates that Indigenous, community, and local knowledges can be incorporated into marine governance with methodological rigour and without requiring reduction to monetary units. These approaches are not alternatives to quantitative NCA but complementary dimensions of a more complete picture of ocean value. The key question is architectural: how these diverse inputs are weighted and integrated in governance processes.',
+  tensions: [
+    'Standard NCA frameworks are optimised for aggregation and comparability — properties that require some form of commensurability that not all knowledge systems accept',
+    'Participatory methods that genuinely incorporate community knowledge are methodologically intensive and context-specific, creating practical barriers to scaling',
+    'The quantitative monetisation required for financial instruments and national accounts cannot capture relational, spiritual, and identity-based ocean values — this is an inherent limit, not a solvable data problem'
+  ],
+  questions: [
+    'What governance architectures could give formally equal institutional weight to Indigenous and scientific ocean knowledges in international policy processes without one epistemology subordinating the other?',
+    'How can arts-based and community evidence be made legible to the technical processes (SEEA implementation, financial instrument design, MSP approval) that currently dominate ocean governance?'
+  ],
+  papers: ['Strand 2025', 'Mak 2025', 'Otieno 2026', 'Keryan 2026', 'Mahjoubi 2025', 'Sumaila 2025']
+},
+
+// ── 05 VALUATION METHODS ──────────────────────────────────────
+{
+  num: '05', name: 'Valuation Methods', subtitle: 'How we count what matters',
+  color: '#0f8060',
+  subtemas: [
+    { t: 'Gross Ecosystem Product (GEP)',
+      d: 'Ouyang et al. (2020) develop GEP as a single aggregate monetary metric explicitly designed to be analogous to GDP in construction and interpretability. Applied to Qinghai Province, GEP exceeded GDP in 2000. China is institutionalising GEP in government performance evaluation across 672 counties — the most advanced example of NCA integration into national governance.',
+      tension: 'GEP uses exchange values compatible with national accounts — a deliberate choice to maximise policy uptake — but this excludes welfare values and non-market values that exchange-based approaches cannot capture.' },
+    { t: 'Welfare values and willingness to pay (WTP)',
+      d: 'Welfare-based methods (contingent valuation, choice experiments) measure how much people are willing to pay for ecosystem services, capturing consumer surplus and non-use values that exchange-value approaches miss. Otieno et al. (2026) find community WTP for mangrove services in Brazil equals 47% of annual household income — using face-to-face choice experiments with 931 households.',
+      tension: 'Welfare values are methodologically richer but harder to embed in national accounts (incompatible with GDP accounting conventions) and more expensive to collect, limiting their geographic coverage.' },
+    { t: 'Blue Social Cost of Carbon',
+      d: 'Bastien-Olvera et al. (2026) estimate the ocean-based component of the social cost of carbon by embedding climate damage functions for corals, mangroves, fisheries, and seaports into the RICE50+ IAM across 155 countries. The blue SCC at baseline discounting is $48/tCO₂ — an approximate doubling of the standard SCC from the same model without ocean impacts. At a 2% discount rate the blue SCC rises to $168/tCO₂.',
+      tension: 'The largest welfare losses come from non-market and non-use values (fisheries nutrition impacts, coral and mangrove existence values), not from market damages — making results sensitive to substitutability assumptions between market and non-market goods.' },
+    { t: 'Rent revenue share — SEEA-EA for fisheries (Pascoe & Scheufele 2025)',
+      d: 'A new SEEA-EA-compliant method for multispecies fisheries. The innovation: annualised total quota/licence holding value ÷ vessel revenue = a proportional exchange price for each species. This isolates the ecosystem\'s contribution from contributions of labour, capital, and management that jointly produce the catch. The method is always positive (never generates negative exchange values) and addresses systematic errors in residual-based approaches.',
+      tension: 'Over 90% of published studies on fisheries ecosystem service accounting erroneously use market price (gross revenue) as the proxy for ecosystem service value — inflating estimates by up to 50x and misattributing the contributions of human capital to the ecosystem.' },
+    { t: 'Benefit transfer and the ESVD',
+      d: 'Benefit transfer applies ecosystem service values estimated in one context to another where primary data collection is not feasible. The ESVD (Brander et al. 2024) aggregates 9,400+ value estimates across 15 biomes, enabling rapid global-scale value transfer. Marine biomes are the highest-valued globally: coral reefs $87K/ha/yr, mangroves $78K/ha/yr.',
+      tension: 'The ESVD is geographically biased toward Europe and North America. Value transfer can produce systematically biased results when applied to contexts that are ecologically, culturally, or socio-economically different from the studies generating the transferred values.' },
+    { t: 'Marginal and scenario valuation',
+      d: 'Zepp et al. (2025) propose marginal valuation as an operationally tractable path for planning: compare ES performance across alternative plans or scenarios rather than seeking absolute monetary totals. This approach is sufficient for many planning decisions and avoids the methodological challenges of absolute valuation.',
+      tension: "Marginal valuation answers 'which plan is better?' but not 'how much is this ecosystem worth?' — it does not generate the aggregate monetary totals needed for national accounting or financial instrument design." },
+    { t: 'SEEA-EA exchange value framework',
+      d: 'SEEA-EA defines exchange prices as those at which goods, services, or assets are or could be traded in markets. For provisioning services: quota lease/sale prices, residual resource rent. For regulating services: avoided cost, replacement cost. The framework is explicitly designed to be compatible with the System of National Accounts (SNA).',
+      tension: 'Exchange values capture what markets can see. Tinch et al. (2021) document that exchange-value frameworks structurally favour extractive uses over conservation when used as the primary decision metric — welfare values including consumer surplus and non-use values are systematically excluded.' },
+    { t: 'Natural Capital Priority Index (NCPI)',
+      d: 'Hernández-Blanco et al. (2025) develop the NCPI as a spatially explicit composite index for prioritising ecosystem conservation investments, combining ecosystem service provision scores, threat levels, and conservation value. Applied to Costa Rica, it identifies spatial priority areas across terrestrial and marine ecosystems for PES investment.',
+      tension: 'Spatial prioritisation tools optimise investment efficiency but embed choices about which ecosystem services to prioritise — choices that are methodological and political simultaneously.' }
+  ],
+  insight: 'The methodological toolkit for marine ecosystem valuation spans a wide range: from GDP-compatible exchange values (GEP, SEEA-EA) to welfare-based WTP approaches to benefit-cost ratios to scenario comparison. Exchange and welfare values serve complementary purposes — exchange values enable comparability with GDP and integration into national accounts; welfare values capture the full societal benefit including what markets cannot price. The rent revenue share method (Pascoe & Scheufele 2025) advances fisheries NCA by correcting a systematic error in most existing SEEA-EA accounts. The blue SCC (Bastien-Olvera 2026) demonstrates that integrating marine capital into IAMs approximately doubles the estimated social cost of carbon — with direct implications for climate policy.',
+  tensions: [
+    'Exchange values enable GDP comparability but exclude consumer surplus and non-use values — Tinch et al. (2021) document systematic underrepresentation of conservation relative to extraction when exchange values are the primary decision metric',
+    'Global value databases are calibrated to contexts where primary data collection has occurred (mainly Global North) — benefit transfer to different contexts carries unquantified uncertainty',
+    'Absolute monetary totals provide accountability metrics; marginal scenario comparison provides planning guidance — both are needed but for different decision contexts'
+  ],
+  questions: [
+    'Can the GEP logic be coherently extended to open ocean, high seas, and Areas Beyond National Jurisdiction where property rights and governance structures are fundamentally different from terrestrial applications?',
+    'How can the rent revenue share method be extended to open-access fisheries in the Global South where no quota or licence market exists and resource rent is theoretically dissipated?'
+  ],
+  papers: ['Ouyang 2020', 'Brander 2024', 'Tinch 2021', 'Otieno 2026', 'Bastien-Olvera 2026', 'Pascoe & Scheufele 2025', 'Hernández-Blanco 2025', 'Zepp 2025']
+},
+
+// ── 06 FINANCIAL MECHANISMS ───────────────────────────────────
+{
+  num: '06', name: 'Financial Mechanisms', subtitle: 'Closing the $120–154B/year gap',
+  color: '#b8416a',
+  subtemas: [
+    { t: 'PES 2.0 and Common Asset Trusts',
+      d: 'Hernández-Blanco et al. (2025) redesign Costa Rica\'s PES scheme into a Common Asset Trust incorporating Ostrom\'s design principles and covering all national natural capital including coastal and marine ecosystems. Total ecosystem service flows: $14.5B/year; oceanic ecosystems: $9.8B/year — the largest single ecosystem type. A Natural Capital Priority Index guides spatial investment allocation.',
+      tension: 'The CAT model requires strong institutional infrastructure for governance, monitoring, and enforcement — capacity that may not exist in contexts with weaker regulatory systems.' },
+    { t: 'Blue carbon credits',
+      d: 'Blue carbon credits monetise the carbon sequestration services of coastal ecosystems (mangroves, seagrasses, salt marshes) in voluntary and compliance carbon markets.',
+      tension: 'Blue carbon prices reflect only the carbon sequestration service. Otieno et al. (2026) find that biodiversity conservation and employment services — accounting for over 50% of community WTP — are entirely excluded from current blue carbon pricing, meaning conservation finance systematically undervalues what communities most care about.' },
+    { t: 'Fishing subsidy reform',
+      d: 'Barbier (2023) documents approximately $35B/year in harmful fishing subsidies that effectively impose a negative price on marine capital by making economically unsustainable fishing financially viable. Reforming these subsidies represents both removal of a major distortion and a potential source of conservation finance.',
+      tension: 'Fishing subsidies are politically entrenched and often provide livelihoods for small-scale fishers and coastal communities — reform without equity safeguards can disproportionately harm the most ocean-dependent communities.' },
+    { t: 'Conservation funding gap — the 100:1 ratio',
+      d: 'Barbier (2023) estimates the conservation funding gap at $120–154B/year — the difference between what is needed for effective global marine conservation and the current $1.3B/year being spent. This 100:1 ratio between need and supply implies that private finance complements but cannot substitute structural changes in ocean economics.',
+      tension: "The gap's scale implies that public finance, subsidy reform, and fundamental changes to ocean industry economics are structural requirements, not optional complements to market-based solutions." },
+    { t: 'Financialisation and the whale bond debate',
+      d: 'Muzaka (2025) documents proposals to issue "whale bonds" backed by carbon sequestration credits from whale populations. A great whale is currently valued at over $2M based on discounted lifetime carbon sequestration and ecosystem services. The World Bank issued an Emission Reduction-Linked Bond along these lines in 2023.',
+      tension: 'Muzaka argues that converting living whales into speculative assets replicates rather than transcends the commodity logic that drove whaling to near-extinction — the whale is now worth more alive only because there is a carbon price, not because its intrinsic biological value is recognised.' },
+    { t: 'Metacoupling and corporate keystone actors',
+      d: 'Tao et al. (2025) develop the first empirical ES flow-based metacoupling framework for PES, identifying cross-regional beneficiaries of clean water provision in the Xin\'an River Watershed. Nongfu Spring Corporation — whose nationwide bottled water products depend on the watershed — is identified as a "keystone actor" that should bear 81% of total compensation costs ($36M/year), requiring only a 1.8% price increase on sales.',
+      tension: 'Convincing corporations to participate in PES schemes voluntarily remains challenging due to power asymmetries and insufficient regulation.' },
+    { t: 'Green taxes, conservation banking, and Natural Capital Credits',
+      d: 'Hernández-Blanco et al. (2025) propose a diversified financial mechanism portfolio for Costa Rica\'s NCT including green taxes on agricultural exports, repurposed subsidies, user fees, and conservation banking with tradable Natural Capital Credits. This portfolio reduces dependence on any single funding source.',
+      tension: 'The political economy of green taxes — particularly on export commodities in trade-dependent economies — creates implementation barriers that may be independent of the methodological soundness of the framework.' },
+    { t: 'Private sector investment potential',
+      d: 'Barbier (2023) calculates that if the top 10 companies in each of 8 major ocean industries invested 10% of revenues in marine conservation, this would generate $83–186B/year — sufficient to close the conservation funding gap. BCRs for conservation investments are compelling: mangrove conservation BCR is 88:1; sustainable seafood management 10:1.',
+      tension: 'Voluntary corporate investment has historically been insufficient without regulatory requirements. The analysis of what is financially possible does not resolve the governance question of what incentives or requirements would actually produce it.' }
+  ],
+  insight: 'Several promising financial architectures are demonstrating practical viability at different scales. Costa Rica\'s PES 2.0 shows how oceanic ecosystems can be incorporated into national conservation finance with equity and spatial precision. The metacoupling approach (Tao 2025) demonstrates how corporate beneficiaries at distance can be made to bear proportional costs through evidence-based attribution. BCR data shows compelling returns: mangrove conservation at 88:1 makes the investment case on purely financial terms. Combining subsidy reform ($35B/year freed), green taxes, blended finance, and co-benefit-linked instruments creates a portfolio approach to closing the conservation funding gap — no single mechanism is sufficient alone.',
+  tensions: [
+    'Blue carbon markets capture the carbon sequestration service but systematically exclude biodiversity conservation, livelihood support, and cultural values — the dimensions communities value most (Otieno 2026)',
+    'Financialisation of ocean ecosystems through bonds and tradeable credits raises the question of whether market incorporation protects living systems or extends the commodity logic that generated their degradation (Muzaka 2025)',
+    'The $120–154B/year conservation funding gap cannot be closed by market mechanisms alone — the scale implies a structural role for public finance, subsidy reform, and regulatory change'
+  ],
+  questions: [
+    'How can co-benefit premiums be designed into blue carbon credits to capture biodiversity, livelihood, and cultural values alongside carbon sequestration?',
+    'What governance mechanisms can ensure that blue bond proceeds are directed toward conservation outcomes rather than captured by extractive uses?'
+  ],
+  papers: ['Barbier 2023', 'Hernández-Blanco 2024', 'Hernández-Blanco 2025', 'Otieno 2026', 'Muzaka 2025', 'Tao 2025', 'Gourvenec 2025', 'Bastien-Olvera 2026']
+},
+
+// ── 07 POLICY & GOVERNANCE ────────────────────────────────────
+{
+  num: '07', name: 'Policy & Governance', subtitle: 'From evidence to decision',
+  color: '#0d5096',
+  subtemas: [
+    { t: 'SEEA national implementation and policy impact',
+      d: 'Martino et al. (2026) conduct the first systematic international review of where NCA and ES concepts have influenced policy, identifying 168 case studies across 52 countries. Most common types of influence: instrumental (31%) and conceptual (29%). NCA approaches dominated the Global South via World Bank WAVES and UN NCAVES; ES assessment was more prevalent in the Global North.',
+      tension: 'Despite over a decade of institutional investment in NCA, documented policy impact remains limited to the environmental domain. Finance, defence, and transport ministries — which make many decisions affecting ocean ecosystems — remain largely untouched.' },
+    { t: 'Marine Spatial Planning (MSP)',
+      d: 'Gambino et al. (2024) systematically review socio-economic analytical tools for MSP, identifying strengths and weaknesses of eight major methodologies including input-output models, social accounting matrices, agent-based models, CBA, and multi-criteria decision analysis. European MSP processes have systematically prioritised environmental assessments while neglecting socio-economic evaluation.',
+      tension: 'The absence of socioeconomic analysis in MSP means that blue economy performance implications of spatial plans go largely unmeasured — a governance gap that limits the ability to detect conflicts and trade-offs before they become costly.' },
+    { t: 'UNOC 2028 and post-2030 ocean governance',
+      d: 'The UN Ocean Conference 2028 and the Kunming-Montreal post-2030 framework represent the primary international policy windows for embedding ocean ecosystem value in governance. Gourvenec et al. (2025) document that current optimistic trajectories for the blue economy remain insufficient to meet Paris Agreement targets: oil and gas will still supply over 70% of offshore energy by 2050.',
+      tension: 'The gap between optimistic "probable" trajectories and a genuinely sustainable blue economy pathway requires fundamental governance changes that go beyond incremental improvements.' },
+    { t: 'BEDA — equity-first project evaluation',
+      d: 'Mak et al. (2025) propose the Blue Economy Development Approach (BEDA) for Canada — a structured project-evaluation framework operationalising Equity → Health → Wealth as non-tradeable decision gates. No project can advance to ecosystem health assessment without satisfying equity criteria including FPIC, and no project can proceed to economic viability without passing the health gate.',
+      tension: 'The BEDA inverts the conventional logic of neoliberal project assessment (economic viability first, social and environmental concerns as residuals), which makes it structurally challenging for actors who benefit from the current sequence.' },
+    { t: 'Common Asset Trusts and global ocean commons',
+      d: 'Hernández-Blanco et al. (2024) propose Common Asset Trusts (CATs) as governance and financial mechanisms for blue commons stewardship from national coastal ecosystems to Areas Beyond National Jurisdiction. A Global Ocean CAT (GOCAT) would hold the open seas as a common asset co-owned by all humanity, with trustees from existing regional, national, and sectoral bodies.',
+      tension: 'The GOCAT concept requires unprecedented international institutional coordination across existing sovereign, sectoral, and commercial interests — the political feasibility pathway is undefined.' },
+    { t: 'Blue economy governance and the grey-to-blue transition',
+      d: 'Gourvenec et al. (2025) use bibliometric analysis of 1,587 publications (2011–2025) to develop a three-pathway scenario framework (business-as-usual grey, probable, blue). The blue pathway requires proactive strategies and immediate decisions grounded in safe and just planetary boundaries, including decolonisation of governance structures and limits on corporate ocean capture.',
+      tension: 'The blue pathway requires active governance intervention against entrenched industrial interests — it is not reachable through incremental improvement of current trajectories.' },
+    { t: 'Impact assessment modelling for ocean economies',
+      d: "O'Donoghue et al. (2021) develop the Economic-Social-Spatial-Environmental (ESSE) framework for multi-dimensional impact assessment of ocean policies. Applied to Ireland: carbon footprint comparison of food systems, probabilistic CBA of marine technologies under uncertainty, and distributional impact analysis of marine investments.",
+      tension: 'Marine policy impact assessment requires integrating economic, social, spatial, and environmental dimensions simultaneously — extremely time-intensive because marine sectors are subsumed within broader national statistical categories.' },
+    { t: 'Biodiversity offset governance and perverse incentives',
+      d: 'Montano et al. (2025) find that NSW\'s current biodiversity offset rate for key fish habitats ($56.75/m²) is based on Costanza et al. (1997) — an estimate that subsequent research has shown to substantially undervalue most ecosystems. When offset fees are lower than the cost of genuine habitat restoration, developers are financially incentivised to pay the fee rather than restore.',
+      tension: 'Outdated valuation evidence embedded in regulatory systems creates perverse incentives that undermine conservation outcomes — illustrating how the absence of updated NCA in legal frameworks has direct, measurable negative consequences.' }
+  ],
+  insight: 'Evidence of successful embedding of ecosystem values in public decision-making is growing: China\'s GEP institutionalisation across 672 counties, Costa Rica\'s PES scheme now covering marine ecosystems, and Australia\'s marine estate management review driven by updated ecosystem service valuation provide replicable models. The most successful cases combine clear metrics accessible to non-environmental decision-makers, equity-first process design, and multi-sectoral institutional buy-in. The primary barrier identified across the literature is not methodological but structural: moving NCA evidence from the environmental domain into finance, defence, infrastructure, and trade ministries where many decisions affecting ocean ecosystems are made.',
+  tensions: [
+    "NCA and ES concepts show 'negligible impact' outside the environmental policy domain (Martino 2026) — finance, defence, and trade ministries remain largely untouched despite a decade of international investment in NCA",
+    'Marine and ocean law protects species and habitats but not the flow of ecosystem service values — a structural legal gap that means ecosystem services can be degraded without legal consequence even in regulated areas',
+    'Power asymmetry between small-scale fishers and Indigenous communities versus industrial ocean actors (offshore energy, deep-sea mining, large-scale aquaculture) is embedded in current governance architectures'
+  ],
+  questions: [
+    'What governance mechanisms have successfully embedded ecosystem values in non-environmental decision-making — what conditions (institutional, political, methodological) made that possible and how replicable are they?',
+    'How can UNOC 2028 generate governance commitments that extend NCA requirements beyond environment ministries to the financial, trade, and infrastructure ministries where many ocean-affecting decisions are made?'
+  ],
+  papers: ['Martino 2026', 'Gambino 2024', 'Mak 2025', 'Hernández-Blanco 2024', 'Gourvenec 2025', 'Sumaila 2025', "O'Donoghue 2021", 'Montano 2025']
+},
+
+// ── 08 CONCEPTUAL TENSIONS ────────────────────────────────────
+{
+  num: '08', name: 'Conceptual Tensions', subtitle: 'The actual debates shaping ocean governance research',
+  color: '#5e58c0',
+  subtemas: [
+    { t: 'Exchange value vs. welfare value',
+      d: 'Exchange values (SEEA-EA approach) measure what ecosystem services would trade for in a market — compatible with GDP accounting. Welfare values (WTP, choice experiments) measure total societal benefit including consumer surplus and non-use values. For the same coral reef, an exchange value might be $15,000/ha/year (quota revenue from fisheries) while a welfare value might be $87,000/ha/year (total societal WTP including recreation, existence value, biodiversity).',
+      tension: 'Tinch et al. (2021) document that exchange-value frameworks structurally favour extractive uses over conservation when used as the primary decision metric — because conservation delivers welfare value (consumer surplus, non-use value) that exchange-based accounting cannot see.' },
+    { t: 'Strong vs. weak sustainability',
+      d: 'Weak sustainability holds that manufactured capital and natural capital are substitutable — technology and investment can compensate for ecosystem degradation if aggregate wealth is maintained. Strong sustainability holds that certain natural capital assets (biodiversity, climate regulation, cultural landscapes) are non-substitutable and must be preserved regardless of economic trade-offs.',
+      tension: 'The substitutability assumption is ultimately an empirical question that cannot be fully resolved before irreversible decisions are made. Mahjoubi et al. (2025) document community grief and psychological distress from ecosystem loss — suggesting that for the most affected communities, ocean ecosystems are experienced as non-substitutable regardless of theoretical frameworks.' },
+    { t: 'Ocean as natural capital vs. ocean as rights-bearer',
+      d: 'The natural capital framework treats ocean ecosystems as assets yielding flows of value to people — a framing that can justify protection by demonstrating economic value. The Rights of Nature framework (applied to rivers and forests in several jurisdictions, with ocean proposals emerging) treats ecosystems as subjects with legal standing independent of their utility to humans.',
+      tension: 'Strand (2025) argues that even the most sophisticated natural capital framework risks reducing the ocean to an instrument of human welfare — precisely the framing that historically enabled the commodification of whales and other marine life.' },
+    { t: 'Blue economy growth vs. ecosystem protection',
+      d: 'Sumaila & Villasante (2025) map 11 distinct conflict typologies across 8 blue economy sectors, showing that accelerating expansion generates systematic overcrowding of ocean space — particularly within EEZs where ~90% of blue economy activity is concentrated.',
+      tension: 'The normative promise of the "Blue Economy" concept is sustainable development alongside social equity, but current governance frameworks generate structural conflicts that suggest both cannot be achieved simultaneously without fundamental redesign.' },
+    { t: "The Economist's Paradox",
+      d: "GDP can grow while the natural capital underpinning economic activity declines. This is because GDP measures flows of market transactions, not changes in natural capital stocks. When a mangrove is cleared for a shrimp farm, GDP rises (construction, aquaculture production) but natural capital stock falls (storm protection, nursery habitat, carbon storage). Xia & Gómez-Baggethun (2026) document this empirically: in China's Diqing region, economic development accelerated even as glacier ecosystem services measurably declined.",
+      tension: "The Economist's Paradox is the core accounting failure that NCA frameworks are designed to correct. Until NCA is embedded alongside GDP in national accounting systems, decision-makers work with systematically incomplete information about the true costs and benefits of development." },
+    { t: 'Simple metrics vs. comprehensive accounts',
+      d: 'Policy makers at the highest levels work with simple, communicable metrics: GDP growth rates, BCRs, carbon prices. Comprehensive ecosystem accounts (full SEEA-EA implementation, spatial priority indices, welfare value estimates) provide richer information but are harder to communicate and slower to produce.',
+      tension: 'The tension between simplicity (needed for high-level policy communication) and comprehensiveness (needed to capture the full complexity of ecosystem service values) requires different products for different audiences — not a single solution.' },
+    { t: 'Financialisation critique',
+      d: 'Muzaka (2025) argues that converting ocean ecosystems into financial assets — through whale bonds, blue carbon credits, biodiversity credits — does not escape the commodity logic that drove historical ocean degradation but extends it into a new temporal register. A whale is worth more alive not because its intrinsic biological value is recognised, but because there is a carbon price that can be discounted into a present asset value.',
+      tension: 'This raises the fundamental question: can market incorporation of ecosystem values protect living systems, or does it inevitably subject them to the volatility, short-termism, and profit imperatives of financial markets? The answer likely depends on governance design.' },
+    { t: 'Pluriversal values and commensurability',
+      d: 'Multiple worldviews — Western economic, Indigenous relational, community livelihood, ecological scientific — assign fundamentally different values to the same ocean ecosystem, based on different ontologies of what the ocean is. Commensurability (reducing all values to a single metric) enables aggregation and comparison but may distort or erase values that resist reduction.',
+      tension: 'International ocean governance requires some form of commensurability to aggregate and compare across jurisdictions. Designing frameworks that enable necessary comparisons without imposing a single ontology is a governance design challenge without a clean technical solution.' }
+  ],
+  insight: 'These debates are active across the 31-paper repository and reflect genuine intellectual tensions in how ocean ecosystems are understood, valued, and governed. They are not methodological disagreements that can be resolved by better data or better methods — they reflect different questions about what matters, who counts, and what kind of relationship between humans and the ocean a governance framework embeds. Engaging with these tensions directly, rather than resolving them prematurely through default choices, is what enables robust and durable frameworks for embedding ocean value in economic systems.',
+  tensions: [
+    'The exchange value / welfare value distinction is not a methodological preference but a choice about whose interests a governance framework makes visible — markets, communities, or all of society',
+    'Strong and weak sustainability reflect different empirical beliefs about substitutability that cannot be fully tested before irreversible ecological decisions are made',
+    'Commensuration (reducing diverse values to a single metric) enables comparison and aggregation but may systematically misrepresent values that resist monetary expression'
+  ],
+  questions: [
+    'Where are the empirical boundaries of substitutability between natural and manufactured capital in marine systems — and how can research contribute to answering this before irreversible thresholds are crossed?',
+    'How can governance frameworks that require commensurability for international comparison remain genuinely open to knowledge systems and value frameworks that resist reduction to monetary units?'
+  ],
+  papers: ['Tinch 2021', 'Strand 2025', 'Sumaila 2025', 'Xia 2026', 'Barbier 2023', 'Mak 2025', 'Muzaka 2025', 'Bastien-Olvera 2026', 'Mahjoubi 2025']
+}
+
+]; // ← END OF D[] ARRAY
+
+// CROSS-CUTTING CONNECTIONS
+// Indices: 0=Data, 1=Ecosystems, 2=Geography, 3=Knowledge,
+//          4=Valuation, 5=Finance, 6=Policy, 7=Tensions
+const CONNECTIONS = [
+  { from: 0, to: 1, label: 'Data enables ecosystem assessment',
+    desc: 'Satellite mapping, InVEST modelling, and ESVD data directly underpin our ability to quantify ecosystem service flows from specific habitats. Data quality constraints (geographic bias, resolution limits) shape which ecosystems are visible in accounts.' },
+  { from: 0, to: 4, label: 'Data feeds valuation methods',
+    desc: 'All valuation methods depend on underlying biophysical and economic data. The ESVD is both a data source and a valuation tool. The quality of exchange value estimates (rent revenue share) depends directly on the quality of quota market data.' },
+  { from: 0, to: 2, label: 'Data availability varies by geography',
+    desc: 'The geographic bias in the ESVD (80%+ from Europe/North America) means data infrastructure is unevenly distributed globally — creating a feedback loop where data-rich regions attract more research, deepening the asymmetry.' },
+  { from: 1, to: 2, label: 'Habitat distribution is geographic',
+    desc: 'Which ecosystems are present where determines both the ecological and governance contexts for valuation. The SIDS paradox is partly a reflection of the fact that the most ocean-dependent geographies are also the least studied habitats.' },
+  { from: 2, to: 3, label: 'Local knowledge is place-based',
+    desc: 'Community and Indigenous knowledge systems are inherently tied to specific places and seascapes. Geographic coverage of knowledge systems research directly maps onto community-based valuation — both are concentrated in certain regions and absent in others.' },
+  { from: 3, to: 4, label: 'Knowledge systems shape valuation',
+    desc: 'How we value ocean ecosystems depends on what we think matters. Indigenous knowledge systems, community livelihood approaches, and welfare-based methods each generate different values for the same ecosystem because they are asking different questions about whose preferences count.' },
+  { from: 4, to: 5, label: 'Valuation informs financial instruments',
+    desc: 'Blue carbon credit prices depend on ecosystem carbon valuation; PES payment levels depend on ecosystem service assessments; blue bond structures depend on valuation of backed assets. The exchange vs. welfare value debate has direct implications for how financial returns are structured.' },
+  { from: 4, to: 7, label: 'Valuation methods embed conceptual choices',
+    desc: 'Every valuation method embeds assumptions about substitutability (strong/weak sustainability), whose preferences count (exchange vs. welfare), and what kind of human-nature relationship is being measured. Methodological debates in Dimension 5 are surface expressions of deeper ontological debates in Dimension 8.' },
+  { from: 5, to: 6, label: 'Finance shapes governance options',
+    desc: 'The availability of financial mechanisms — blue bonds, PES schemes, carbon credits — shapes what governance architectures are politically feasible. Conversely, governance frameworks determine which financial instruments are legally permissible.' },
+  { from: 6, to: 7, label: 'Policy choices embed conceptual positions',
+    desc: 'Every governance framework makes implicit choices about strong vs. weak sustainability, about whose knowledge counts, and about what kind of relationship between humans and the ocean is being institutionalised. Dimension 8 makes these implicit choices explicit.' },
+  { from: 2, to: 5, label: 'Geography shapes equity in finance',
+    desc: 'SIDS — the most ocean-dependent nations — currently receive the least blue finance. Geographic coverage gaps in valuation evidence partly explain this: without demonstrated value, investment flows elsewhere.' },
+  { from: 0, to: 6, label: 'Data is the evidence base for policy',
+    desc: 'Governance decisions require evidence. The absence of Marine Satellite Accounts and the incomparability of ocean economy statistics directly limits the evidence base available to policy-makers — Martino et al. (2026) document that NCA has negligible impact outside the environmental domain partly because the evidence is not in the formats other ministries need.' },
+  { from: 3, to: 6, label: 'Knowledge systems challenge governance design',
+    desc: 'Two-Eyed Seeing (Mak 2025), cognitive equity (Strand 2025), and co-definition methodologies (Mahjoubi 2025) all raise the question of how governance frameworks can incorporate non-Western knowledge systems without subordinating them — a challenge running through MSP, BEDA, and CAT design alike.' }
+];
+
+// ✏️ ═══════════════════════════════════════════════════════════
+// END OF DATA SECTION — DO NOT EDIT BELOW THIS LINE
+// ═══════════════════════════════════════════════════════════ ✏️
+
+</script>
+
+<!-- 🔒 ═══════════════════════════════════════════════════════
+     VISUALIZATION CODE — DO NOT EDIT THIS SECTION
+     ════════════════════════════════════════════════════════ 🔒 -->
+
+<style>
+:root{
+  --bg:#fafaf8;--surface:#ffffff;--surface2:#f4f3ef;
+  --text:#1a1a1e;--muted:#6b7280;--border:#e5e4de;
+  font-family:'Outfit',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-size:15px;line-height:1.6;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;}
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 24px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;padding:10px 0;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-btn{background:none;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap;transition:all 0.15s;}
+.nav-btn:hover,.nav-btn.active{background:var(--surface2);color:var(--text);}
+.nav-btn.active{font-weight:600;}
+.nav-divider{width:1px;height:18px;background:var(--border);flex-shrink:0;margin:0 4px;}
+.site-header{max-width:1200px;margin:0 auto;padding:48px 24px 32px;}
+.header-tag{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.header-title{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.15;margin-bottom:16px;color:var(--text);}
+.header-title span{font-style:italic;color:#0d5096;}
+.header-desc{font-size:15px;color:var(--muted);max-width:680px;line-height:1.7;}
+.header-meta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;}
+.meta-pill{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:500;color:var(--muted);}
+.view{display:none;}.view.active{display:block;}
+.view-inner{max-width:1200px;margin:0 auto;padding:32px 24px 64px;}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:block;}
+.pipeline-intro{max-width:680px;margin-bottom:28px;font-size:15px;color:var(--muted);line-height:1.7;}
+.pipeline-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.dim-card{border:1.5px solid var(--border);border-radius:12px;padding:18px 16px;cursor:pointer;transition:all 0.2s;background:var(--surface);position:relative;overflow:hidden;}
+.dim-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,#aaa);}
+.dim-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.08);border-color:var(--accent,#aaa);}
+.dim-card .num{font-size:11px;font-weight:700;letter-spacing:0.08em;margin-bottom:6px;}
+.dim-card .cname{font-family:'Fraunces',serif;font-size:15px;font-weight:600;line-height:1.25;margin-bottom:4px;}
+.dim-card .csub{font-size:11px;color:var(--muted);line-height:1.4;}
+.dim-card .count{font-size:10px;margin-top:8px;font-weight:500;}
+.connections-intro{max-width:700px;margin-bottom:32px;font-size:15px;color:var(--muted);line-height:1.7;}
+.conn-diagram-wrap{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:28px;}
+#conn-svg{width:100%;height:auto;display:block;}
+.conn-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;}
+.conn-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 14px;}
+.conn-item-label{font-size:12px;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.conn-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.conn-item-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px;}
+.dim-header{border-radius:12px;padding:24px 28px;margin-bottom:24px;}
+.dim-header-num{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;opacity:0.7;margin-bottom:6px;}
+.dim-header-title{font-family:'Fraunces',serif;font-size:clamp(24px,3vw,36px);font-weight:700;line-height:1.15;margin-bottom:6px;}
+.dim-header-sub{font-size:14px;opacity:0.75;}
+.subtemas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:28px;}
+.subtema-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color 0.15s;}
+.subtema-card:hover{border-color:var(--accent,#aaa);}
+.subtema-title{font-size:13px;font-weight:600;margin-bottom:5px;color:var(--text);}
+.subtema-detail{font-size:12px;color:var(--muted);line-height:1.55;}
+.subtema-tension{font-size:11px;margin-top:7px;padding:5px 8px;border-radius:4px;line-height:1.4;}
+.insight-block{background:var(--surface);border-left:4px solid var(--accent,#aaa);border-radius:0 10px 10px 0;padding:18px 20px;font-size:14px;line-height:1.75;color:var(--text);margin-bottom:24px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
+.tension-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);}
+.tension-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px;}
+.tension-text{font-size:13px;color:var(--text);line-height:1.6;}
+.question-item{display:flex;gap:10px;padding:7px 0;}
+.q-num{font-size:13px;font-weight:700;flex-shrink:0;min-width:18px;}
+.q-text{font-size:13px;color:var(--muted);line-height:1.6;}
+.papers-row{display:flex;flex-wrap:wrap;gap:6px;}
+.paper-tag{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:4px 10px;font-size:11px;color:var(--muted);}
+.dim-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0 0;border-top:1px solid var(--border);margin-top:8px;}
+.dim-nav-btn{background:var(--surface);border:1px solid var(--border);padding:8px 18px;border-radius:7px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:var(--text);transition:all 0.15s;}
+.dim-nav-btn:hover{background:var(--surface2);}
+.dim-nav-btn.primary{color:#fff;}
+.dim-nav-btn.primary:hover{opacity:0.88;}
+.dim-dots{display:flex;gap:5px;align-items:center;}
+.dim-dot{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:all 0.18s;}
+footer{background:var(--surface2);border-top:1px solid var(--border);padding:32px 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;}
+.footer-text{font-size:12px;color:var(--muted);line-height:1.7;}
+.footer-title{font-family:'Fraunces',serif;font-size:16px;font-weight:600;margin-bottom:4px;}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}.pipeline-grid{grid-template-columns:1fr 1fr;}}
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showView('overview')">Overview</button>
+    <button class="nav-btn" onclick="showView('connections')">Connections</button>
+    <div class="nav-divider"></div>
+    <button class="nav-btn" onclick="showDim(0)" id="nb-0">01 Data</button>
+    <button class="nav-btn" onclick="showDim(1)" id="nb-1">02 Ecosystems</button>
+    <button class="nav-btn" onclick="showDim(2)" id="nb-2">03 Geography</button>
+    <button class="nav-btn" onclick="showDim(3)" id="nb-3">04 Knowledge</button>
+    <button class="nav-btn" onclick="showDim(4)" id="nb-4">05 Valuation</button>
+    <button class="nav-btn" onclick="showDim(5)" id="nb-5">06 Finance</button>
+    <button class="nav-btn" onclick="showDim(6)" id="nb-6">07 Policy</button>
+    <button class="nav-btn" onclick="showDim(7)" id="nb-7">08 Tensions</button>
+  </div>
+</nav>
+
+<header>
+  <div class="site-header">
+    <div class="header-tag">Re-Valuing Blue Natural Capital · LSE × Oceano Azul Foundation</div>
+    <h1 class="header-title">Knowledge <span>Architecture</span></h1>
+    <p class="header-desc">A systematic synthesis of peer-reviewed papers across eight research dimensions, mapping the state of knowledge on marine natural capital valuation, governance, and the open debates that define the field's frontier.</p>
+    <div class="header-meta" id="header-meta"></div>
+  </div>
+</header>
+
+<div class="view active" id="view-overview">
+  <div class="view-inner">
+    <span class="sec-label">Pipeline flow — from methodological foundation to conceptual debates</span>
+    <p class="pipeline-intro">The eight dimensions are ordered by their logical sequence in the research process: robust data infrastructure enables ecosystem assessment, which must be interpreted through geographic and knowledge lenses, before valuation methods can generate values that feed financial mechanisms and policy instruments. Conceptual tensions run through all layers and shape the choices made at each stage.</p>
+    <div class="pipeline-grid" id="dim-grid-top"></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);margin-top:6px;margin-bottom:2px;">
+      <div></div><div></div><div></div>
+      <div style="text-align:right;padding-right:14px;font-size:18px;color:#d1d5db;">↓</div>
+    </div>
+    <div class="pipeline-grid" id="dim-grid-bot" style="direction:rtl;margin-top:0;"></div>
+  </div>
+</div>
+
+<div class="view" id="view-connections">
+  <div class="view-inner">
+    <span class="sec-label">Cross-cutting connections</span>
+    <p class="connections-intro">The eight dimensions are linked by substantive research relationships that cut across the pipeline order. Understanding these connections reveals where methodological choices in one dimension create downstream implications in others. The diagram below maps the 13 most significant cross-dimensional relationships identified across the paper repository. Hover over any node to highlight its connections.</p>
+    <div class="conn-diagram-wrap">
+      <svg id="conn-svg" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
+        <g id="conn-lines"></g>
+        <g id="conn-nodes"></g>
+      </svg>
+    </div>
+    <span class="sec-label">Connection descriptions</span>
+    <div class="conn-list" id="conn-desc-list"></div>
+  </div>
+</div>
+
+<div class="view" id="view-dim">
+  <div class="view-inner" id="dim-content"></div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-title">Re-Valuing Blue Natural Capital</div>
+      <p class="footer-text">London School of Economics × Oceano Azul Foundation<br>Systematic literature review</p>
+    </div>
+    <div id="footer-meta-right">
+      <p class="footer-text" id="footer-version-text"></p>
+    </div>
+    <div>
+      <p class="footer-text">This living document is updated as new<br>papers are incorporated into the repository.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Inject metadata
+document.getElementById('header-meta').innerHTML =
+  `<span class="meta-pill">${METADATA.papers} papers reviewed</span>
+   <span class="meta-pill">8 research dimensions</span>
+   <span class="meta-pill">Informing UNOC 2028 strategy</span>
+   <span class="meta-pill">v${METADATA.version} · ${METADATA.date}</span>`;
+document.getElementById('footer-version-text').innerHTML =
+  `${METADATA.papers} papers reviewed · 8 dimensions<br>v${METADATA.version} · ${METADATA.date}`;
+
+const NODE_POS=[
+  {x:280,y:50},{x:460,y:110},{x:510,y:270},{x:440,y:400},
+  {x:280,y:450},{x:120,y:400},{x:50,y:270},{x:100,y:110}
+];
+
+let currentDim=null;
+
+function showView(v){
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.querySelector(`[onclick="showView('${v}')"]`);
+  if(btn) btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showDim(idx){
+  currentDim=idx;
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  document.getElementById('view-dim').classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('nb-'+idx);
+  if(btn) btn.classList.add('active');
+  renderDim(idx);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderDim(idx){
+  const d=D[idx];
+  const c=d.color;
+  const prev=idx>0?idx-1:null;
+  const next=idx<7?idx+1:null;
+
+  const subH=d.subtemas.map(s=>`
+    <div class="subtema-card" style="--accent:${c}">
+      <div class="subtema-title">${s.t}</div>
+      <div class="subtema-detail">${s.d}</div>
+      <div class="subtema-tension" style="background:${c}12;color:${c}cc;border-left:2.5px solid ${c}55;">⟳ ${s.tension}</div>
+    </div>`).join('');
+
+  const tenH=d.tensions.map(t=>`
+    <div class="tension-item">
+      <div class="tension-dot" style="background:${c}"></div>
+      <div class="tension-text">${t}</div>
+    </div>`).join('');
+
+  const qH=d.questions.map((q,i)=>`
+    <div class="question-item">
+      <div class="q-num" style="color:${c}">${i+1}.</div>
+      <div class="q-text">${q}</div>
+    </div>`).join('');
+
+  const pH=d.papers.map(p=>`<span class="paper-tag">${p}</span>`).join('');
+
+  const dotH=D.map((_,i)=>`
+    <div class="dim-dot ${i===idx?'active':''}" onclick="showDim(${i})"
+      style="${i===idx?'background:'+c+';':''}" title="${D[i].name}"></div>`).join('');
+
+  document.getElementById('dim-content').innerHTML=`
+    <div class="dim-header" style="background:${c}10;border:1.5px solid ${c}30;">
+      <div class="dim-header-num" style="color:${c}">${d.num} of 08</div>
+      <h2 class="dim-header-title" style="color:${c}dd">${d.name}</h2>
+      <div class="dim-header-sub" style="color:${c}99">${d.subtitle}</div>
+    </div>
+    <span class="sec-label">Sub-themes · ${d.subtemas.length} areas</span>
+    <div class="subtemas-grid">${subH}</div>
+    <span class="sec-label">Key insight</span>
+    <div class="insight-block" style="border-color:${c}">${d.insight}</div>
+    <div class="two-col">
+      <div>
+        <span class="sec-label">Active tensions</span>${tenH}
+      </div>
+      <div>
+        <span class="sec-label">Open research questions</span>${qH}
+      </div>
+    </div>
+    <span class="sec-label">Papers in repository (${d.papers.length})</span>
+    <div class="papers-row" style="margin-bottom:24px">${pH}</div>
+    <div class="dim-nav">
+      <button class="dim-nav-btn" onclick="${prev!==null?'showDim('+prev+')':'showView(\'overview\')'}">${prev!==null?'← '+D[prev].name:'↩ Overview'}</button>
+      <div class="dim-dots">${dotH}</div>
+      <button class="dim-nav-btn primary" style="background:${c};border-color:${c}" onclick="${next!==null?'showDim('+next+')':'showView(\'overview\')'}">${next!==null?D[next].name+' →':'↩ Overview'}</button>
+    </div>`;
+}
+
+function buildOverview(){
+  const g1=document.getElementById('dim-grid-top');
+  const g2=document.getElementById('dim-grid-bot');
+  D.slice(0,4).forEach((d,i)=>{
+    const el=document.createElement('div');
+    el.className='dim-card';
+    el.style.cssText=`--accent:${d.color}`;
+    el.innerHTML=`<div class="num" style="color:${d.color}">${d.num}</div><div class="cname">${d.name}</div><div class="csub">${d.subtitle}</div><div class="count" style="color:${d.color}">${d.subtemas.length} sub-themes →</div>`;
+    el.onclick=()=>showDim(i);
+    g1.appendChild(el);
+  });
+  D.slice(4).reverse().forEach((d,ri)=>{
+    const idx=7-ri;
+    const el=document.createElement('div');
+    el.className='dim-card';
+    el.style.cssText=`--accent:${d.color};direction:ltr`;
+    el.innerHTML=`<div class="num" style="color:${d.color}">${d.num}</div><div class="cname">${d.name}</div><div class="csub">${d.subtitle}</div><div class="count" style="color:${d.color}">${d.subtemas.length} sub-themes →</div>`;
+    el.onclick=()=>showDim(idx);
+    g2.appendChild(el);
+  });
+}
+
+function buildConnections(){
+  const svg=document.getElementById('conn-svg');
+  const lg=document.getElementById('conn-lines');
+  const ng=document.getElementById('conn-nodes');
+  const dl=document.getElementById('conn-desc-list');
+
+  CONNECTIONS.forEach((c,ci)=>{
+    const p1=NODE_POS[c.from],p2=NODE_POS[c.to];
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',p1.x);line.setAttribute('y1',p1.y);
+    line.setAttribute('x2',p2.x);line.setAttribute('y2',p2.y);
+    line.setAttribute('stroke','#d1d5db');line.setAttribute('stroke-width','1.5');
+    line.setAttribute('stroke-dasharray','4 3');
+    line.style.transition='stroke 0.2s,stroke-width 0.2s';
+    line.id='cl-'+ci;
+    lg.appendChild(line);
+  });
+
+  D.forEach((d,i)=>{
+    const pos=NODE_POS[i];
+    const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.style.cursor='pointer';
+
+    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx',pos.x);circle.setAttribute('cy',pos.y);circle.setAttribute('r',36);
+    circle.setAttribute('fill',d.color+'18');
+    circle.setAttribute('stroke',d.color);circle.setAttribute('stroke-width','1.5');
+    circle.style.transition='all 0.2s';
+
+    const numT=document.createElementNS('http://www.w3.org/2000/svg','text');
+    numT.setAttribute('x',pos.x);numT.setAttribute('y',pos.y-10);
+    numT.setAttribute('text-anchor','middle');numT.setAttribute('dominant-baseline','central');
+    numT.setAttribute('fill',d.color);numT.setAttribute('font-size','10');numT.setAttribute('font-weight','700');
+    numT.textContent=d.num;
+
+    const words=d.name.split(' ');
+    words.forEach((w,wi)=>{
+      const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',pos.x);
+      t.setAttribute('y',pos.y+4+(wi-(words.length-1)/2)*13);
+      t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','central');
+      t.setAttribute('fill','#374151');t.setAttribute('font-size','9');t.setAttribute('font-weight','500');
+      t.textContent=w;
+      g.appendChild(t);
+    });
+
+    g.appendChild(circle);g.appendChild(numT);
+    g.onclick=()=>showDim(i);
+    g.onmouseover=()=>{
+      circle.setAttribute('r','40');circle.setAttribute('fill',d.color+'30');
+      CONNECTIONS.forEach((c,ci)=>{
+        if(c.from===i||c.to===i){
+          const l=document.getElementById('cl-'+ci);
+          if(l){l.setAttribute('stroke',d.color);l.setAttribute('stroke-width','2.5');l.setAttribute('stroke-dasharray','none');}
+        }
+      });
+    };
+    g.onmouseout=()=>{
+      circle.setAttribute('r','36');circle.setAttribute('fill',d.color+'18');
+      CONNECTIONS.forEach((_,ci)=>{
+        const l=document.getElementById('cl-'+ci);
+        if(l){l.setAttribute('stroke','#d1d5db');l.setAttribute('stroke-width','1.5');l.setAttribute('stroke-dasharray','4 3');}
+      });
+    };
+    ng.appendChild(g);
+  });
+
+  CONNECTIONS.forEach((c)=>{
+    const div=document.createElement('div');
+    div.className='conn-item';
+    div.innerHTML=`
+      <div class="conn-item-label">
+        <div class="conn-dot" style="background:${D[c.from].color}"></div>
+        <span style="color:${D[c.from].color}">${D[c.from].name}</span>
+        <span style="color:#9ca3af">→</span>
+        <div class="conn-dot" style="background:${D[c.to].color}"></div>
+        <span style="color:${D[c.to].color}">${D[c.to].name}</span>
+      </div>
+      <div style="font-size:12px;font-weight:600;color:#374151;margin-bottom:4px;">${c.label}</div>
+      <div class="conn-item-desc">${c.desc}</div>`;
+    dl.appendChild(div);
+  });
+}
+
+buildOverview();
+buildConnections();
+</script>
+
+<!-- 🔒 END OF VISUALIZATION CODE 🔒 -->
+
+</body>
+</html>
